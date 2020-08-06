@@ -7,7 +7,11 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "select2/dist/css/select2";
+@import "aos/dist/aos";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
