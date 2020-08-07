@@ -5,6 +5,8 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    @reviews = @cocktail.reviews
+    @review = Review.new
   end
 
   def new
@@ -18,6 +20,13 @@ class CocktailsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def search
+    @name = params[:search].capitalize
+    @cocktails = Cocktail.where("name LIKE '#{@name}%'")
+    @cocktails = Cocktail.order(:name) if @cocktails.empty?
+    render :index
   end
 
   private

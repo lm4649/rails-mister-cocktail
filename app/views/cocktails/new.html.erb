@@ -1,4 +1,9 @@
-<h1>🍸️Add a cocktail🍸️</h1>
+<div class="wrapper">
+  <h1>🍸️Add a cocktail🍸️</h1>
+  <%= link_to cocktails_path do %>
+      <i class="fas fa-undo-alt"></i>
+  <% end %>
+</div>
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>

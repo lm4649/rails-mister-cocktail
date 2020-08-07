@@ -3,7 +3,7 @@
       <% @cocktails.each do |cocktail| %>
         <div class="col-6 mt-5">
           <div class="card" style="width: 18rem;" data-aos="fade-in">
-            <%= image_tag "https://source.unsplash.com/featured/?{#{cocktail.name}, cocktail}", width: '286px', height: '190px', alt: "cocktail", class:"card-img-top", style: "object-fit: cover;"  %>
+            <%= image_tag "https://source.unsplash.com/featured/?{ cocktail, #{cocktail.name} }", width: '286px', height: '190px', alt: "cocktail", class:"card-img-top", style: "object-fit: cover;"  %>
             <div class="card-body">
               <h5 class="card-title"><%= cocktail.name %></h5>
               <p class="card-text"><span id=<%= "#{cocktail.name}" %>></span></p>

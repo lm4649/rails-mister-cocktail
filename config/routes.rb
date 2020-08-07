@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   resources :doses, only: [:destroy]
   resources :cocktails, only: [:index, :show, :new, :create] do
     resources :doses, only: [:new, :create]
+    resources :reviews, only: [:create]
+    collection do
+       post :search
+    end
   end
 end

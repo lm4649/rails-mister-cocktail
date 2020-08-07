@@ -8,7 +8,7 @@
 </div>
 <br><br>
 <div class="container">
-  <div class="wrapper" style= "display: flex; margin-top: 8px">
+  <div class="wrapper">
     <h2 class="text-muted">Ingredients List</h2>
     <%= link_to new_cocktail_dose_path(@cocktail) do %>
       <span style='opacity:0'>//</span><i class="fas fa-plus-circle"></i>
@@ -24,6 +24,26 @@
   </li>
   <% end %>
   </ul>
+  <br><hr><br>
+  <div class="wrapper wrapper-v">
+    <h2 class="text-muted">Add a Review</h2>
+    <%= simple_form_for [@cocktail, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.button :submit, class: "btn-success" %>
+    <% end %>
+  </div>
+  <br><hr><br>
+  <h2 class="text-muted">Reviews</h2>
+  <div class="wrapper wrapper-v">
+    <% @reviews.each do |review| %>
+       <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <%= "#{'⭐️' * review.rating } - #{review.content}" %>
+          </p>
+       </div>
+    <% end %>
+  </div>
 </div>
 
 
