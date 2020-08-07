@@ -1,5 +1,5 @@
 <div class="wrapper" style= "display: flex; margin-top: 8px">
-  <%= image_tag "https://source.unsplash.com/featured/?{cocktail}", alt: "#{@cocktail.name}", class: 'avatar-large' %>
+  <%= cl_image_tag @cocktail.photo.attached? ? @cocktail.photo.key : "https://source.unsplash.com/featured/?{cocktail}", alt: "#{@cocktail.name}", class: 'avatar-large' %>
   <span style='opacity:0'>//</span>
   <h1><%= @cocktail.name %></h1>
   <%= link_to cocktails_path do %>
