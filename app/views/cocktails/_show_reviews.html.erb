@@ -1,0 +1,10 @@
+<h2 class="text-muted">Reviews</h2>
+<div class="wrapper wrapper-v">
+  <% @reviews.each do |review| %>
+    <div class="media text-muted pt-3">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <%= "#{'⭐️' * review.rating } - #{review.content}" %>
+      </p>
+    </div>
+  <% end %>
+</div>

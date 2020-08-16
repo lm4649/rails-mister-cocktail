@@ -1,16 +1,15 @@
 <div class="wrapper">
   <h1>Add a dose for <%= @cocktail.name %></h1>
   <%= link_to cocktail_path(params[:cocktail_id]) do %>
-      <i class="fas fa-undo-alt"></i>
+    <i class="fas fa-undo-alt"></i>
   <% end %>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="col">
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :description %>
         <%= f.association :ingredient, collection: @ingredients, input_html: {class: 'select2'} %>
+        <%= f.input :description %>
         <%= f.button :submit, class: "btn-success" %>
       <% end %>
     </div>

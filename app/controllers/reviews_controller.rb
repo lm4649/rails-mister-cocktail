@@ -3,8 +3,12 @@ class ReviewsController < ApplicationController
     @cocktail = Cocktail.find(params[:cocktail_id])
     @review = Review.new(review_params)
     @review.cocktail = @cocktail
-    @review.save
-    redirect_to cocktail_path(@cocktail)
+    if @review.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      flash.now[:alert] = "Something went wrong."
+      redirect_to cocktail_path(@cocktail)
+    end
   end
 
   private
